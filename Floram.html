@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>♡</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: "Bukhari Script", cursive; /* Cambia "Bukhari Script" por la fuente correcta */
+            background-image: url('ft04.webp');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white; /* Cambia el color del texto a blanco */
+            margin: 0;
+        }
+
+        /* Aplicar la fuente principal a todos los elementos de texto en la página */
+        body * {
+            font-family: inherit;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header id="encabezado">
+        <h1>Para ti mujer ♡</h1>
+    </header>
+    <main>
+        <form id="nombreForm">
+            <label for="nombre">¿Quien eres?:</label>
+            <input type="text" id="nombre" required>
+            <button type="button" id="enviarButton">Enviar</button>
+        </form>
+        <div id="mensajeFlor" style="display: none;">
+            <p id="mensaje"></p>
+            <img src="01 (2).jpg" alt="Flor Amarilla">
+        </div>
+        <div id="escritoFlores" style="display: none;">
+            <div>
+                <h2>♡</h2>
+                <p id="mensajeEspecial"></p>
+            </div>
+            <div id="flores">
+            </div>
+        </div>
+    </main>
+    <script>
+        // Array de mensajes aleatorios
+        const mensajesAleatorios = [
+            "Esta flor amarilla es un reflejo de tu luz interior, siempre iluminando mi día. Gracias por ser una persona tan radiante y especial.",
+            "Así como esta flor amarilla irradia belleza, tu sonrisa ilumina mi mundo. ¡Eres verdaderamente increíble!",
+            "Esta flor amarilla simboliza la alegría y la amistad, dos cosas que encuentro en abundancia en ti. Gracias por ser mi amiga y hacer mi vida más brillante.",
+            "En este día especial, te entrego esta flor amarilla como un recordatorio de lo valiosa y única que eres. Tu belleza interior y exterior siempre me asombran.",
+            "Cada pétalo de esta flor amarilla representa un momento feliz que hemos compartido juntas. ¡Que nuestra amistad siga floreciendo!",
+            "Esta flor amarilla es un pequeño recordatorio de que eres el sol en mi vida, iluminando incluso los días más grises. Gracias por ser mi fuente constante de alegría.",
+            "Al igual que esta flor amarilla, tu presencia irradia calidez y felicidad. Eres una persona verdaderamente especial.",
+            "En este día, quiero expresar mi admiración por ti con esta flor amarilla. Eres fuerte, valiente y hermosa en todos los sentidos.",
+            "Esta flor amarilla es un símbolo de amistad duradera y aprecio sincero. Gracias por ser una parte tan importante de mi vida.",
+            "Que esta flor amarilla te recuerde lo especial que eres y cuánto te valoro. Tu luz brilla más allá de las palabras."
+        ];
+
+        document.getElementById("enviarButton").addEventListener("click", function() {
+            const nombre = document.getElementById("nombre").value;
+            const mensaje = `Hola, ${nombre}. ¡Feliz Día de la Flor Amarilla!`;
+            document.getElementById("mensaje").textContent = mensaje;
+            
+            // Mostrar un mensaje aleatorio
+            const mensajeAleatorio = mensajesAleatorios[Math.floor(Math.random() * mensajesAleatorios.length)];
+            document.getElementById("mensajeEspecial").textContent = mensajeAleatorio;
+
+            document.getElementById("encabezado").style.display = "none";
+            document.getElementById("nombreForm").style.display = "none";
+            document.getElementById("mensajeFlor").style.display = "block";
+            document.getElementById("escritoFlores").style.display = "block";
+        });
+
+        
+
+        for (let i = 0; i < cantidadFlores; i++) {
+            const flor = document.createElement("img");
+            flor.src = nombresFlores[i]; // Reemplaza 'nombresFlores[i]' con la ruta de tus imágenes
+            flor.alt = `Flor ${i + 1}`; // Proporciona un texto alternativo descriptivo
+            floresContainer.appendChild(flor);
+        }
+    </script>
+</body>
+</html>
